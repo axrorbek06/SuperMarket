@@ -9,44 +9,16 @@ using System.Web;
 
 namespace SuperMarket1
 {
-    internal class DAL
+    internal class DBServis
     {
+
+
         public void Create(string Name, decimal Price , int CategoryId)
         {
-            SqlConnection connection = new SqlConnection(
-                "Data Source=AXRORBEK\\SQLEXPRESS;Initial Catalog=supermarket;Integrated Security=True");
+            string Query = $"INSERT INTO Product (Name, Price , CategoryID )" +
+                $" VALUES ( '{Name}' , {Price} , {CategoryId} )";
 
-            try
-            {
-                connection.Open();
-                
-                string Query = $"INSERT INTO Product (Name, Price , CategoryID ) VALUES ( '{Name}' , {Price} , {CategoryId} )";
-                
-                SqlCommand cmd = new SqlCommand(Query,connection);
-
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
-                {
-                    Console.WriteLine("Product created successfully.");
-                }
-                else
-                {
-                    Console.WriteLine("Failed to create the product.");
-                }
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine("SQL Error: " + ex.Message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Something went wrong: " + ex.Message);
-            }
-            finally
-            {
-                connection.Close();
-            }
+            Dal.ExecuteNonQuery(Query);
         }
 
         public void ReadAll()
