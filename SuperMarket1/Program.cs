@@ -12,7 +12,7 @@ namespace SuperMarket1
         static void Main(string[] args)
         {
 
-            DAL db = new DAL();
+            DBServis db = new DBServis();
 
             /// 1 
             //db.Create("juice", 9000 , 1);
@@ -24,8 +24,8 @@ namespace SuperMarket1
             //db.ReadById(3);
 
             /// 4
-            // db.Update(4 , "strobars" , 5000);
-            //db.ReadAll();
+            db.Update(1 , "Coca-Cola" , 8000 , 1);
+            db.ReadAll();
 
             /// 5
             //db.Delete(4);
