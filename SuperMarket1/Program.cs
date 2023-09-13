@@ -12,19 +12,19 @@ namespace SuperMarket1
         static void Main(string[] args)
         {
 
-            DBServis db = new DBServis();
+            ProductDBServis db = new ProductDBServis();
 
             /// 1 
             //db.Create("water", 3000 , 1);
 
             /// 2
-            db.ReadAll();
+            //db.ReadAll();
 
             ///3
             //db.ReadById(3);
 
             /// 4
-            //db.Update(1 , "Coca-Cola" , 8000 , 1);
+            //db.Update(10 , "Water" , 4000 , 1);
             //db.ReadAll();
 
             /// 5
@@ -54,14 +54,6 @@ namespace SuperMarket1
 
             /// 10
             //db.ReadByCategory(3);
-
-
-
-
-
-
-
-
 
         }
     }
